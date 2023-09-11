@@ -7,7 +7,14 @@ import SearchModal from "../modal/searchModal";
 export default function NavBar() {
   return (
     <>
-      <Flex w={"100%"} px={"4"} py={"4"}>
+      <Flex
+        w={"100%"}
+        px={{
+          base: "6",
+          lg: "14",
+        }}
+        py={"6"}
+      >
         <Flex justify={"space-between"} w={"100%"} align={"center"}>
           <Flex align={"center"}>
             <Image
