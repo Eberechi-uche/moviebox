@@ -67,6 +67,7 @@ export default function HomeHero() {
               align={"center"}
               justify={"space-between"}
               fontSize={"xs"}
+              fontWeight={"900"}
             >
               <Flex align={"center"}>
                 <Image src="/images/IMDB.png" objectFit={"contain"} />
