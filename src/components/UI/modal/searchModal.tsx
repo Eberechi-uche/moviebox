@@ -29,18 +29,30 @@ export default function SearchModal(props: SearchModalProps) {
 
               <Flex w={"100%"} my={"4"} align={"center"}>
                 <Text fontSize={"xs"} fontWeight={"900"} mr={"2"}>
-                  Genre:
+                  media type:
                 </Text>
                 <Flex overflowX={"scroll"}>
                   <Flex>
                     <Button
                       borderRadius={"full"}
                       size={"xs"}
-                      variant={"out"}
+                      variant={"outline"}
                       mx={"2"}
                       colorScheme={"red"}
+                      fontWeight={"900"}
                     >
-                      Action
+                      movie
+                    </Button>
+                    <Button
+                      borderRadius={"full"}
+                      size={"xs"}
+                      variant={"outline"}
+                      mx={"2"}
+                      colorScheme={"red"}
+                      px={"6"}
+                      fontWeight={"900"}
+                    >
+                      tv
                     </Button>
                   </Flex>
                 </Flex>

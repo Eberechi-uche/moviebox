@@ -16,6 +16,7 @@ export type CardData = {
   name: string;
   first_air_date: string;
   backdrop_path: string;
+  runtime: string;
 };
 export function MovieCard(props: {
   title: string;
@@ -69,6 +70,7 @@ export function MovieCard(props: {
           h={"100%"}
           objectFit={"cover"}
           data-testid="movie-poster"
+          fallbackSrc="/images/placeholder.jpeg"
         />
       </Flex>
       <Flex

@@ -23,10 +23,11 @@ export default function Home() {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setMovieList(response.results as CardData[]);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        throw new Error("Failed to fetch data");
+      });
   }, []);
   return (
     <main>

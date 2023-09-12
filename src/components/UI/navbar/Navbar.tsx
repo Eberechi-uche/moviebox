@@ -36,9 +36,9 @@ export default function NavBar() {
             </Text>
           </Flex>
           <SearchBar />
-          <Flex>
+          {/* <Flex>
             <Text>sign in</Text>
-          </Flex>
+          </Flex> */}
         </Flex>
       </Flex>
     </>
