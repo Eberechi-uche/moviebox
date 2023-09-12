@@ -102,11 +102,19 @@ export default function HomeHero() {
               fontWeight={"900"}
             >
               <Flex align={"center"}>
-                <Image src="/images/IMDB.png" objectFit={"contain"} />
+                <Image
+                  src="/images/IMDB.png"
+                  objectFit={"contain"}
+                  alt={"IMDB"}
+                />
                 <Text mx={"2"}> 10</Text>
               </Flex>
               <Flex align={"center"}>
-                <Image src="/images/rotten-tomato.png" objectFit={"contain"} />
+                <Image
+                  src="/images/rotten-tomato.png"
+                  objectFit={"contain"}
+                  alt={"rotten tomato"}
+                />
                 <Text mx={"2"}> 10</Text>
               </Flex>
             </Flex>

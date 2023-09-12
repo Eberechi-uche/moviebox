@@ -41,7 +41,7 @@
 }
 body {
   width: 100dvw;
-  height: 100dvh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -51,5 +51,6 @@ main {
   max-width: var(--max-width);
   width: 100%;
   place-self: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: fit-content;
 }
