@@ -8,8 +8,7 @@ async function getMovie() {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZTVhNWRlMzY3MTU4Yzk4ZGI3NjMyYTBjOWRjNjQ1ZiIsInN1YiI6IjY0ZmY1YzQyMmRmZmQ4MDEzYmNkM2UxNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BBxbH3KUC-r7zJeNxOGNQO2bZgocwefZzHTJ_N3_yYA",
+      Authorization: `Bearer ${process.env.NEXT_TOKEN}`,
     },
   };
   const res = await fetch(

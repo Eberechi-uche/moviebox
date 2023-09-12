@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function HomeHero(props: { movies: [] }) {
   const [currentView, setCurrentView] = useState(0);
-  const screenWidth = useRef(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(0);
   const movieArray = [
     {
       img: "/vanNED66ty4Kc45IMcGI7edQBwH.jpg",
@@ -54,13 +54,17 @@ export default function HomeHero(props: { movies: [] }) {
     return () => clearInterval(interval);
   }, [currentView]);
 
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+  });
+
   return (
     <>
       <Flex
         w={"100%"}
         h={"600px"}
         bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url( https://www.themoviedb.org/t/p/w1280${
-          screenWidth.current < 500
+          screenWidth < 500
             ? movieArray[currentView].imgMini
             : movieArray[currentView].img
         })`}
