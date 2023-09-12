@@ -8,32 +8,32 @@ export default function HomeHero() {
   const [currentView, setCurrentView] = useState(0);
   const movieArray = [
     {
-      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      img: "/vanNED66ty4Kc45IMcGI7edQBwH.jpg",
+      imgMini: "/fcXdJlbSdUEeMSJFsXKsznGwwok.jpg",
       overview:
         "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
     },
     {
-      img: "https://www.themoviedb.org/t/p/w1280/jP2ik17jvKiV5sGEknMFbZv7WAe.jpg",
+      img: "/aRKQdF6AGbhnF9IAyJbte5epH5R.jpg",
+      imgMini: "/rVX05xRKS5JhEYQFObCi4lAnZT4.jpg",
       overview:
         "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
     },
     {
-      img: "https://www.themoviedb.org/t/p/w1280/qmevjlNDaWoEughGlXFWHbQ4TaR.jpg",
-      overview:
-        "Until now, the Justice League has been a loose association of superpowered individuals. But when they are swept away to Warworld, a place of unending brutal gladiatorial combat, Batman, Superman, Wonder Woman and the others must somehow unite to form an unbeatable resistance able to lead an entire planet to freedom.",
-    },
-    {
-      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      img: "/2ii07lSwHarg0gWnJoCYL3Gyd1j.jpg",
+      imgMini: "/n1hqbSCtyBAxaXEl1Dj3ipXJAJG.jpg",
       overview:
         "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
     },
     {
-      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      img: "/9m161GawbY3cWxe6txd1NOHTjd0.jpg",
+      imgMini: "/Af4bXE63pVsb2FtbW8uYIyPBadD.jpg",
       overview:
         "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
     },
     {
-      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      img: "/qy5Hokv4eOQgSOVZLL9eAVDmRA2.jpg",
+      imgMini: "/kGENInUWI9tRVg4ae8XAVgAWpEi.jpg",
       overview:
         "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
     },
@@ -52,15 +52,19 @@ export default function HomeHero() {
 
     return () => clearInterval(interval);
   }, [currentView]);
-
+  const screenWidth = window.innerWidth;
   return (
     <>
       <Flex
         w={"100%"}
         h={"600px"}
-        bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url(${movieArray[currentView].img})`}
+        bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url( https://www.themoviedb.org/t/p/w1280${
+          screenWidth < 700
+            ? movieArray[currentView].imgMini
+            : movieArray[currentView].img
+        })`}
         bgSize={"cover"}
-        transition={"all 0.5s ease-in-out"}
+        transition={"all 1s ease-in"}
         flexDir={"column"}
       >
         <NavBar />
@@ -93,34 +97,9 @@ export default function HomeHero() {
             >
               John wick 3 : parabellum
             </Text>
-            <Flex
-              py={"5"}
-              w={"70%"}
-              align={"center"}
-              justify={"space-between"}
-              fontSize={"xs"}
-              fontWeight={"900"}
-            >
-              <Flex align={"center"}>
-                <Image
-                  src="/images/IMDB.png"
-                  objectFit={"contain"}
-                  alt={"IMDB"}
-                />
-                <Text mx={"2"}> 10</Text>
-              </Flex>
-              <Flex align={"center"}>
-                <Image
-                  src="/images/rotten-tomato.png"
-                  objectFit={"contain"}
-                  alt={"rotten tomato"}
-                />
-                <Text mx={"2"}> 10</Text>
-              </Flex>
-            </Flex>
             <Text
               fontSize={{
-                base: "sm",
+                base: "xs",
                 lg: "sm",
               }}
             >

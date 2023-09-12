@@ -4,8 +4,8 @@ export function MovieCard() {
   return (
     <Flex
       w={{
-        base: "170px",
-        lg: "170px",
+        base: "150px",
+        lg: "180px",
       }}
       minH={{
         base: "250px",
@@ -13,12 +13,31 @@ export function MovieCard() {
       }}
       flexDir={"column"}
       data-testid="movie-card"
+      pos={"relative"}
     >
-      <Flex h={"70%"} w={"100%"}>
+      <Text
+        position={"absolute"}
+        top={"10px"}
+        left={"10px"}
+        fontWeight={"600"}
+        bg={"whiteAlpha.700"}
+        px={"2"}
+        borderRadius={"2px"}
+        fontSize={"sm"}
+      >
+        movie
+      </Text>
+      <Flex
+        h={"70%"}
+        w={"100%"}
+        borderRadius={"10px"}
+        boxShadow={"md"}
+        overflow={"hidden"}
+      >
         <Image
           alt="movie-name"
           src={
-            "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg"
+            "https://www.themoviedb.org/t/p/w1280/kdM24KINoAVK9wjCtDJCkdffEpc.jpg"
           }
           w={"100%"}
           h={"100%"}
@@ -34,7 +53,7 @@ export function MovieCard() {
         fontWeight={"900"}
         color={"#9ca3af"}
       >
-        <Text data-testid="movie-release-date">USA, 2023</Text>
+        <Text data-testid="movie-release-date"> 2023</Text>
         <Text
           fontWeight={"700"}
           fontSize={"xs"}
@@ -44,37 +63,6 @@ export function MovieCard() {
         >
           Shang-Chi and the Legend of the Ten Rings
         </Text>
-        <Flex
-          align={"center"}
-          fontWeight={"700"}
-          color={"#111827"}
-          fontSize={"xs"}
-          w={"100%"}
-          justify={"space-between"}
-          py={"1"}
-        >
-          <Flex align={"center"}>
-            <Image
-              src="/images/IMDB.png"
-              boxSize={"10px"}
-              alt="IMDB"
-              objectFit={"cover"}
-            />
-            <Text ml={"2"}>10</Text>
-          </Flex>
-          <Flex align={"center"}>
-            <Image
-              src="/images/rotten-tomato.png"
-              boxSize={"10px"}
-              alt="rotten tomato"
-              objectFit={"cover"}
-            />
-            <Text ml={"2"}>10</Text>
-          </Flex>
-        </Flex>
-        <Flex fontSize={"xx-small"}>
-          <Text>Tags</Text>
-        </Flex>
       </Flex>
     </Flex>
   );

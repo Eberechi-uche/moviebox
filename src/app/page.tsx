@@ -6,13 +6,8 @@ import NavBar from "@/components/UI/navbar/Navbar";
 export default function Home() {
   return (
     <main>
-      {/* <HomeHero /> */}
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+      <HomeHero />
+
       <p> the movie box</p>
     </main>
   );
