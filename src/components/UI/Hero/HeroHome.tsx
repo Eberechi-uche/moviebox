@@ -4,7 +4,7 @@ import NavBar from "../navbar/Navbar";
 import { RectangleIcon } from "../icons/Icons";
 import { useEffect, useState } from "react";
 
-export default function HomeHero() {
+export default function HomeHero(props: { movies: [] }) {
   const [currentView, setCurrentView] = useState(0);
   const movieArray = [
     {

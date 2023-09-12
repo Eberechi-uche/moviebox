@@ -1,6 +1,12 @@
 import { Flex, Text, Image } from "@chakra-ui/react";
 
-export function MovieCard() {
+export function MovieCard(props: {
+  title: string;
+  media: string;
+  poster: string;
+  id: number;
+  release: string;
+}) {
   return (
     <Flex
       w={{
@@ -14,6 +20,7 @@ export function MovieCard() {
       flexDir={"column"}
       data-testid="movie-card"
       pos={"relative"}
+      key={props.id}
     >
       <Text
         position={"absolute"}
@@ -25,7 +32,7 @@ export function MovieCard() {
         borderRadius={"2px"}
         fontSize={"sm"}
       >
-        movie
+        {props.media}
       </Text>
       <Flex
         h={"70%"}
@@ -36,9 +43,7 @@ export function MovieCard() {
       >
         <Image
           alt="movie-name"
-          src={
-            "https://www.themoviedb.org/t/p/w1280/kdM24KINoAVK9wjCtDJCkdffEpc.jpg"
-          }
+          src={`https://www.themoviedb.org/t/p/w1280/${props.poster}`}
           w={"100%"}
           h={"100%"}
           objectFit={"cover"}
@@ -53,7 +58,7 @@ export function MovieCard() {
         fontWeight={"900"}
         color={"#9ca3af"}
       >
-        <Text data-testid="movie-release-date"> 2023</Text>
+        <Text data-testid="movie-release-date"> {props.release}</Text>
         <Text
           fontWeight={"700"}
           fontSize={"xs"}
@@ -61,7 +66,7 @@ export function MovieCard() {
           py={"1"}
           data-testid="movie-title"
         >
-          Shang-Chi and the Legend of the Ten Rings
+          {props.title}
         </Text>
       </Flex>
     </Flex>
