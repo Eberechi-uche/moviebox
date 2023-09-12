@@ -3,7 +3,7 @@ import { Flex, Text, Image } from "@chakra-ui/react";
 import NavBar from "../navbar/Navbar";
 import { RectangleIcon } from "../icons/Icons";
 import { useEffect, useState } from "react";
-let view = 0;
+
 export default function HomeHero() {
   const [currentView, setCurrentView] = useState(0);
   const movieArray = ["#000", "blue.500", "yellow.500", "green.500", "red.500"];
