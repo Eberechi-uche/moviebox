@@ -3,6 +3,7 @@
 import { Flex, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { SearchIcon } from "../icons/Icons";
 import SearchModal from "../modal/searchModal";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
@@ -16,25 +17,27 @@ export default function NavBar() {
         py={"6"}
       >
         <Flex justify={"space-between"} w={"100%"} align={"center"}>
-          <Flex align={"center"}>
-            <Image
-              src={"/images/tv.png"}
-              boxSize={"30px"}
-              boxShadow={"base"}
-              borderRadius={"full"}
-            />
-            <Text
-              mx={"2"}
-              display={{
-                base: "none",
-                lg: "unset",
-              }}
-              fontWeight={"900"}
-              color={"#fff"}
-            >
-              Movie Box
-            </Text>
-          </Flex>
+          <Link href={"/"}>
+            <Flex align={"center"}>
+              <Image
+                src={"/images/tv.png"}
+                boxSize={"30px"}
+                boxShadow={"base"}
+                borderRadius={"full"}
+              />
+              <Text
+                mx={"2"}
+                display={{
+                  base: "none",
+                  lg: "unset",
+                }}
+                fontWeight={"900"}
+                color={"#fff"}
+              >
+                Movie Box
+              </Text>
+            </Flex>
+          </Link>
           <SearchBar />
           {/* <Flex>
             <Text>sign in</Text>

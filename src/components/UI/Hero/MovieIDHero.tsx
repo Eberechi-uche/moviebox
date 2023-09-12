@@ -1,6 +1,7 @@
 import { Flex, Text, Image, SimpleGrid, Icon } from "@chakra-ui/react";
 import { PlayIcon } from "../icons/Icons";
 import { CardData } from "../card/movieCard";
+import NavBar from "../navbar/Navbar";
 
 export default function MovieHero(props: {
   overView: string;
@@ -12,12 +13,14 @@ export default function MovieHero(props: {
 }) {
   return (
     <Flex
-      minH={"550px"}
+      minH={"600px"}
       bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url(https://www.themoviedb.org/t/p/original/${props.backdrop})`}
-      p={9}
+      py={"9"}
       bgSize={"cover"}
       w={"100%"}
+      flexDir={"column"}
     >
+      <NavBar />
       <Flex
         w={{
           base: "100%",
@@ -29,6 +32,7 @@ export default function MovieHero(props: {
           lg: "row",
         }}
         justify={"space-between"}
+        px={"8"}
       >
         <Image
           src={`https://www.themoviedb.org/t/p/original/${props.poster}`}
@@ -47,7 +51,7 @@ export default function MovieHero(props: {
         />
 
         <Flex>
-          <Flex color={"#fff"} flexDir={"column"} fontWeight={"900"}>
+          <Flex color={"#fff"} flexDir={"column"}>
             <Text
               fontSize={{
                 base: "2xl",
