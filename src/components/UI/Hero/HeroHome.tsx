@@ -6,7 +6,38 @@ import { useEffect, useState } from "react";
 
 export default function HomeHero() {
   const [currentView, setCurrentView] = useState(0);
-  const movieArray = ["#000", "blue.500", "yellow.500", "green.500", "red.500"];
+  const movieArray = [
+    {
+      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      overview:
+        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
+    },
+    {
+      img: "https://www.themoviedb.org/t/p/w1280/jP2ik17jvKiV5sGEknMFbZv7WAe.jpg",
+      overview:
+        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
+    },
+    {
+      img: "https://www.themoviedb.org/t/p/w1280/qmevjlNDaWoEughGlXFWHbQ4TaR.jpg",
+      overview:
+        "Until now, the Justice League has been a loose association of superpowered individuals. But when they are swept away to Warworld, a place of unending brutal gladiatorial combat, Batman, Superman, Wonder Woman and the others must somehow unite to form an unbeatable resistance able to lead an entire planet to freedom.",
+    },
+    {
+      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      overview:
+        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
+    },
+    {
+      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      overview:
+        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
+    },
+    {
+      img: "https://www.themoviedb.org/t/p/w1280/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      overview:
+        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
+    },
+  ];
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentView < 4) {
@@ -27,7 +58,8 @@ export default function HomeHero() {
       <Flex
         w={"100%"}
         h={"600px"}
-        bg={movieArray[currentView]}
+        bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url(${movieArray[currentView].img})`}
+        bgSize={"cover"}
         transition={"all 0.5s ease-in-out"}
         flexDir={"column"}
       >
@@ -84,9 +116,7 @@ export default function HomeHero() {
                 lg: "sm",
               }}
             >
-              John Wick is on the run after killing a member of the
-              international assassins' guild, and with a $14 million price tag
-              on his head, he is the target of hit men and women everywhere.
+              {movieArray[currentView].overview}
             </Text>
           </Flex>
           <Flex flexDir={"column"} align={"flex-end"}>

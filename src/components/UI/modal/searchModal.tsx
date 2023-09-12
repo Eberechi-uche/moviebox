@@ -36,8 +36,9 @@ export default function SearchModal(props: SearchModalProps) {
                     <Button
                       borderRadius={"full"}
                       size={"xs"}
-                      variant={"outline"}
+                      variant={"out"}
                       mx={"2"}
+                      colorScheme={"red"}
                     >
                       Action
                     </Button>

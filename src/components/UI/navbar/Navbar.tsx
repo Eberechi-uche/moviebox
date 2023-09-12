@@ -29,6 +29,8 @@ export default function NavBar() {
                 base: "none",
                 lg: "unset",
               }}
+              fontWeight={"900"}
+              color={"#fff"}
             >
               Movie Box
             </Text>

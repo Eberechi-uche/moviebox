@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       {/* <HomeHero /> */}
-      <MovieHero />
+      <HomeHero />
       <p> the movie box</p>
     </main>
   );
