@@ -2,11 +2,11 @@
 import { Flex, Text, Image } from "@chakra-ui/react";
 import NavBar from "../navbar/Navbar";
 import { RectangleIcon } from "../icons/Icons";
-import { useEffect, useState } from "react";
-const screenWidth = window.innerWidth;
-console.log(screenWidth);
+import { useEffect, useRef, useState } from "react";
+
 export default function HomeHero(props: { movies: [] }) {
   const [currentView, setCurrentView] = useState(0);
+  const screenWidth = useRef(window.innerWidth);
   const movieArray = [
     {
       img: "/vanNED66ty4Kc45IMcGI7edQBwH.jpg",
@@ -60,7 +60,7 @@ export default function HomeHero(props: { movies: [] }) {
         w={"100%"}
         h={"600px"}
         bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url( https://www.themoviedb.org/t/p/w1280${
-          screenWidth < 500
+          screenWidth.current < 500
             ? movieArray[currentView].imgMini
             : movieArray[currentView].img
         })`}
