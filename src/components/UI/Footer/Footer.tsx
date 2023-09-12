@@ -5,11 +5,10 @@ export default function Footer() {
     <>
       <Flex
         h={"30vh"}
-        bg={"black"}
+        bg={"#BE123C"}
         px={"9"}
         py={"4"}
         flexDir={"column"}
-        color={"#9ca3af"}
         fontWeight={"900"}
       >
         <Flex>

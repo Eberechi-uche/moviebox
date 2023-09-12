@@ -1,5 +1,22 @@
 import { Flex, Text, Image } from "@chakra-ui/react";
-
+import { useRouter } from "next/navigation";
+export type CardData = {
+  id: 346698;
+  media_type: string;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: 3534.928;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: false;
+  vote_average: 7.3;
+  vote_count: 4157;
+  name: string;
+  first_air_date: string;
+  backdrop_path: string;
+};
 export function MovieCard(props: {
   title: string;
   media: string;
@@ -7,6 +24,7 @@ export function MovieCard(props: {
   id: number;
   release: string;
 }) {
+  const route = useRouter();
   return (
     <Flex
       w={{
@@ -21,6 +39,9 @@ export function MovieCard(props: {
       data-testid="movie-card"
       pos={"relative"}
       key={props.id}
+      onClick={() => {
+        route.push(`/${props.media}/${props.id}`);
+      }}
     >
       <Text
         position={"absolute"}
@@ -43,7 +64,7 @@ export function MovieCard(props: {
       >
         <Image
           alt="movie-name"
-          src={`https://www.themoviedb.org/t/p/w1280/${props.poster}`}
+          src={`https://www.themoviedb.org/t/p/original/${props.poster}`}
           w={"100%"}
           h={"100%"}
           objectFit={"cover"}
@@ -58,12 +79,14 @@ export function MovieCard(props: {
         fontWeight={"900"}
         color={"#9ca3af"}
       >
-        <Text data-testid="movie-release-date"> {props.release}</Text>
+        <Text data-testid="movie-release-date" fontSize={"xs"}>
+          {props.release}
+        </Text>
         <Text
           fontWeight={"700"}
-          fontSize={"xs"}
-          color={"#111827"}
+          color={"#fff"}
           py={"1"}
+          fontSize={"md"}
           data-testid="movie-title"
         >
           {props.title}

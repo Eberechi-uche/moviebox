@@ -3,8 +3,9 @@ import { Flex, Text, Image } from "@chakra-ui/react";
 import NavBar from "../navbar/Navbar";
 import { RectangleIcon } from "../icons/Icons";
 import { useEffect, useRef, useState } from "react";
+import { CardData } from "../card/movieCard";
 
-export default function HomeHero(props: { movies: [] }) {
+export default function HomeHero(props: { movies: CardData[] }) {
   const [currentView, setCurrentView] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
   const movieArray = [
@@ -63,10 +64,11 @@ export default function HomeHero(props: { movies: [] }) {
       <Flex
         w={"100%"}
         h={"600px"}
-        bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url( https://www.themoviedb.org/t/p/w1280${
-          screenWidth < 500
-            ? movieArray[currentView].imgMini
-            : movieArray[currentView].img
+        bg={"#000"}
+        bgImage={`linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)) , url( https://www.themoviedb.org/t/p/original${
+          screenWidth > 500
+            ? props.movies[currentView].backdrop_path
+            : props.movies[currentView].poster_path
         })`}
         bgSize={"cover"}
         transition={"all 1s ease-in"}
@@ -96,11 +98,13 @@ export default function HomeHero(props: { movies: [] }) {
               fontSize={{
                 base: "2xl",
                 md: "4xl",
-                lg: "5xl",
+                lg: "3xl",
               }}
-              fontWeight={"700"}
+              fontWeight={"900"}
+              color={"#BE123C"}
             >
-              John wick 3 : parabellum
+              {props.movies[currentView].name ||
+                props.movies[currentView].title}
             </Text>
             <Text
               fontSize={{
@@ -108,7 +112,7 @@ export default function HomeHero(props: { movies: [] }) {
                 lg: "sm",
               }}
             >
-              {movieArray[currentView].overview}
+              {props.movies[currentView].overview}
             </Text>
           </Flex>
           <Flex flexDir={"column"} align={"flex-end"}>

@@ -1,7 +1,8 @@
 import { Flex, Text, Image, SimpleGrid, Icon } from "@chakra-ui/react";
 import { PlayIcon } from "../icons/Icons";
+import { CardData } from "../card/movieCard";
 
-export default function MovieHero() {
+export default function MovieHero(props: CardData) {
   return (
     <Flex
       minH={"550px"}
