@@ -13,7 +13,7 @@ import {
 import { SearchIcon } from "../icons/Icons";
 import { Dispatch, SetStateAction, useState } from "react";
 import { CardData, MovieCardMini } from "../card/movieCard";
-import { options } from "@/app/page";
+import { options } from "@/components/API/apiEndpoint";
 type SearchModalProps = {
   isOpen: boolean;
   onClose: () => void;

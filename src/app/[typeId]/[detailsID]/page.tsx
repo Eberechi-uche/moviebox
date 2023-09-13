@@ -6,8 +6,8 @@ import { CardLoader } from "@/components/UI/loaders/loaders";
 import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import { options } from "@/components/API/apiEndpoint";
 
-import { options } from "@/app/page";
 export default function MovieDetail() {
   const [movie, setMovieList] = useState<CardData>();
   const [recommendation, setRecommendations] = useState<CardData[]>();

@@ -6,13 +6,7 @@ import { FullScreenLoader } from "@/components/UI/loaders/loaders";
 import { Flex, SimpleGrid, Text, Image } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-export const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: process.env.NEXT_PUBLIC_MOVIE_DB_KEY as string,
-  },
-};
+import { options } from "@/components/API/apiEndpoint";
 
 export default function Home() {
   const [movieList, setMovieList] = useState<CardData[]>([]);
