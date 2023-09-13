@@ -48,10 +48,17 @@ export default function SearchModal(props: SearchModalProps) {
 
   return (
     <>
-      <Modal isOpen={props.isOpen} onClose={props.onClose} size={"lg"}>
+      <Modal
+        isOpen={props.isOpen}
+        onClose={props.onClose}
+        size={{
+          base: "sm",
+          md: "lg",
+        }}
+      >
         <ModalOverlay bg={"#070505"} />
         <ModalContent
-          w={"95%"}
+          w={"85%"}
           bg={searchType !== "movie" ? "#BE123C" : "#171717"}
           transition={"all 0.5s ease-in"}
           brightness={"2"}
@@ -123,6 +130,7 @@ function Search(props: {
             color={props.searchType == "movie" ? "#BE123C" : "#171717"}
           />
           <Input
+            w={"80%"}
             border={"2px solid"}
             borderColor={props.searchType == "movie" ? "#BE123C" : "#171717"}
             focusBorderColor={
