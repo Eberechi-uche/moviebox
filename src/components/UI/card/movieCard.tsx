@@ -97,3 +97,44 @@ export function MovieCard(props: {
     </Flex>
   );
 }
+export function MovieCardMini(props: {
+  image: string;
+  name: string;
+  id: number;
+  media: string;
+  pubyear: string;
+  overview: string;
+}) {
+  const route = useRouter();
+  return (
+    <Flex
+      w={"100%"}
+      bg={"#000"}
+      my={"4"}
+      onClick={() => {
+        route.push(`/${props.media}/${props.id}`);
+      }}
+    >
+      <Flex align={"center"} w={"100%"}>
+        <Image
+          alt={props.name}
+          src={`https://www.themoviedb.org/t/p/original/${props.image}`}
+          fallbackSrc="/images/placeholder.jpeg"
+          minH={"60px"}
+          maxH={"120px"}
+          w={"30%"}
+          objectFit={"cover"}
+        />
+        <Flex pl={"2"} pr={"6"} flexDir={"column"}>
+          <Text fontWeight={"900"}>{props.name}</Text>
+          <Text fontSize={"xx-small"} color={"#8A8A8A"} noOfLines={2}>
+            {props.overview}
+          </Text>
+          <Text fontWeight={"400"} fontSize={"xx-small"} color={"#8A8A8A"}>
+            {props.pubyear}
+          </Text>
+        </Flex>
+      </Flex>
+    </Flex>
+  );
+}

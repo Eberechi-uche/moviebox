@@ -1,6 +1,6 @@
-import { Flex, Text, Image, SimpleGrid, Icon } from "@chakra-ui/react";
+import { Flex, Text, Image } from "@chakra-ui/react";
 import { PlayIcon } from "../icons/Icons";
-import { CardData } from "../card/movieCard";
+
 import NavBar from "../navbar/Navbar";
 
 export default function MovieHero(props: {
