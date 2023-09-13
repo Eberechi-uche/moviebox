@@ -86,7 +86,7 @@ export default function SearchModal(props: SearchModalProps) {
               tv
             </Text>
           </Flex>
-          <ModalBody color={"#f2f2f2"} overflowY={"scroll"} maxH={"70vh"}>
+          <ModalBody color={"#f2f2f2"} overflowY={"scroll"} maxH={"60vh"}>
             <Search
               input={input}
               setInput={setInput}
@@ -130,7 +130,7 @@ function Search(props: {
             color={props.searchType == "movie" ? "#BE123C" : "#171717"}
           />
           <Input
-            w={"80%"}
+            w={"100%"}
             border={"2px solid"}
             borderColor={props.searchType == "movie" ? "#BE123C" : "#171717"}
             focusBorderColor={
@@ -140,7 +140,6 @@ function Search(props: {
               props.searchType == "movie" ? "search movie" : "search series"
             }
             borderRadius={"none"}
-            fontSize={"xs"}
             mx={"2"}
             _placeholder={{
               color: "#fafafa",
