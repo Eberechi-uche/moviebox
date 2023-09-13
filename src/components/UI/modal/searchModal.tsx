@@ -58,10 +58,9 @@ export default function SearchModal(props: SearchModalProps) {
       >
         <ModalOverlay bg={"#070505"} />
         <ModalContent
-          w={"85%"}
+          w={"95%"}
           bg={searchType !== "movie" ? "#BE123C" : "#171717"}
-          transition={"all 0.5s ease-in"}
-          brightness={"2"}
+          transition={"background 0.5s ease-in"}
         >
           <Flex p={"6"} w={"100%"}>
             <Text
@@ -124,22 +123,28 @@ function Search(props: {
 }) {
   return (
     <>
-      <Flex w={"100%"} px={"4"} py={"4"} flexDir={"column"}>
+      <Flex
+        w={"100%"}
+        px={"4"}
+        py={"1"}
+        flexDir={"column"}
+        border={"2px solid"}
+        borderColor={props.searchType == "movie" ? "#BE123C" : "#171717"}
+        borderRadius={"full"}
+      >
         <Flex align={"center"}>
           <SearchIcon
             color={props.searchType == "movie" ? "#BE123C" : "#171717"}
           />
           <Input
             w={"100%"}
-            border={"2px solid"}
-            borderColor={props.searchType == "movie" ? "#BE123C" : "#171717"}
             focusBorderColor={
-              props.searchType == "movie" ? "#BE123C" : "#171717"
+              props.searchType !== "movie" ? "#BE123C" : "#171717"
             }
             placeholder={
               props.searchType == "movie" ? "search movie" : "search series"
             }
-            borderRadius={"none"}
+            border={"none"}
             mx={"2"}
             _placeholder={{
               color: "#fafafa",

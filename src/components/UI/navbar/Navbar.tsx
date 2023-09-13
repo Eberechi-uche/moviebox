@@ -60,14 +60,11 @@ function SearchBar() {
           lg: "60%",
         }}
         justify={"space-between"}
-        px={"2"}
+        px={"6"}
         border={"2px solid"}
         borderColor={"#fff"}
         py={"2"}
-        borderRadius={{
-          base: "full",
-          md: "1",
-        }}
+        borderRadius={"full"}
         color={"#fff"}
         onClick={onOpen}
       >

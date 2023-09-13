@@ -136,7 +136,9 @@ export function MovieCardMini(props: {
           objectFit={"cover"}
         />
         <Flex pl={"2"} pr={"6"} flexDir={"column"}>
-          <Text fontWeight={"900"}>{props.name}</Text>
+          <Text fontWeight={"900"} fontSize={"sm"}>
+            {props.name}
+          </Text>
           <Text fontSize={"xx-small"} color={"#8A8A8A"} noOfLines={2}>
             {props.overview}
           </Text>
