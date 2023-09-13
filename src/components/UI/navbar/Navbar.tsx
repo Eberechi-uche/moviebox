@@ -66,7 +66,7 @@ function SearchBar() {
         py={"2"}
         borderRadius={{
           base: "full",
-          md: "10px",
+          md: "1",
         }}
         color={"#fff"}
         onClick={onOpen}

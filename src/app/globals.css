@@ -56,3 +56,17 @@ main {
   background-color: #171717;
   color: "offwhite";
 }
+.mini-video {
+  height: 400px;
+  width: 100%;
+  background: wheat;
+  pointer-events: none;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+@media screen and (min-width: 900px) {
+  .mini-video {
+    height: 400px;
+    width: 280px;
+  }
+}

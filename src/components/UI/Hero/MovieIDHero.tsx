@@ -49,7 +49,6 @@ export default function MovieHero(props: {
           boxShadow={"lg"}
           mr={"12"}
         />
-
         <Flex>
           <Flex color={"#fff"} flexDir={"column"}>
             <Text

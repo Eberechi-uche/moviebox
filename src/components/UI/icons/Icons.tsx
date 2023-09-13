@@ -1,4 +1,5 @@
 import { Flex, Icon } from "@chakra-ui/react";
+import { useState } from "react";
 
 export function SearchIcon(props: any) {
   return (
@@ -58,5 +59,56 @@ export function PlayIcon(props: any) {
         />
       </svg>
     </Icon>
+  );
+}
+export function HeartIcon(props: any) {
+  const [liked, setLiked] = useState(false);
+  return (
+    <Flex
+      bg={"whiteAlpha.700"}
+      p={"1"}
+      borderRadius={"full"}
+      onClick={(e: React.MouseEvent) => {
+        e.stopPropagation();
+        setLiked(!liked);
+      }}
+    >
+      {!liked ? (
+        <Icon {...props}>
+          <svg
+            // width="24"
+            // height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.31802 6.31802C2.56066 8.07538 2.56066 10.9246 4.31802 12.682L12.0001 20.364L19.682 12.682C21.4393 10.9246 21.4393 8.07538 19.682 6.31802C17.9246 4.56066 15.0754 4.56066 13.318 6.31802L12.0001 7.63609L10.682 6.31802C8.92462 4.56066 6.07538 4.56066 4.31802 6.31802Z"
+              stroke="#111827"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Icon>
+      ) : (
+        <Icon {...props}>
+          <svg
+            // width="30"
+            // height="30"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.17169 5.17157C4.73379 3.60948 7.26645 3.60948 8.82854 5.17157L10.0001 6.34315L11.1717 5.17157C12.7338 3.60948 15.2664 3.60948 16.8285 5.17157C18.3906 6.73367 18.3906 9.26633 16.8285 10.8284L10.0001 17.6569L3.17169 10.8284C1.6096 9.26633 1.6096 6.73367 3.17169 5.17157Z"
+              fill="#BE123C"
+            />
+          </svg>
+        </Icon>
+      )}
+    </Flex>
   );
 }

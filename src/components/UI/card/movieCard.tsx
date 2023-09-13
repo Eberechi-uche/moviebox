@@ -1,5 +1,6 @@
 import { Flex, Text, Image } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { HeartIcon } from "../icons/Icons";
 export type CardData = {
   id: 346698;
   media_type: string;
@@ -44,18 +45,26 @@ export function MovieCard(props: {
         route.push(`/${props.media}/${props.id}`);
       }}
     >
-      <Text
+      <Flex
         position={"absolute"}
         top={"10px"}
         left={"10px"}
-        fontWeight={"600"}
-        bg={"whiteAlpha.700"}
-        px={"2"}
-        borderRadius={"2px"}
-        fontSize={"sm"}
+        w={"90%"}
+        justify={"space-between"}
       >
-        {props.media}
-      </Text>
+        <Text
+          fontWeight={"600"}
+          bg={"whiteAlpha.700"}
+          px={"2"}
+          borderRadius={"2px"}
+          fontSize={"sm"}
+        >
+          {props.media}
+        </Text>
+
+        <HeartIcon />
+      </Flex>
+
       <Flex
         h={"70%"}
         w={"100%"}
@@ -122,7 +131,8 @@ export function MovieCardMini(props: {
           fallbackSrc="/images/placeholder.jpeg"
           minH={"60px"}
           maxH={"120px"}
-          w={"30%"}
+          minW={"30%"}
+          maxW={"30%"}
           objectFit={"cover"}
         />
         <Flex pl={"2"} pr={"6"} flexDir={"column"}>
