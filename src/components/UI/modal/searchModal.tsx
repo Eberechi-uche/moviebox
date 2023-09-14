@@ -11,7 +11,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { SearchIcon } from "../icons/Icons";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { CardData, MovieCardMini } from "../card/movieCard";
 import { options } from "@/components/API/apiEndpoint";
 type SearchModalProps = {
@@ -21,31 +21,40 @@ type SearchModalProps = {
 export default function SearchModal(props: SearchModalProps) {
   const [input, setInput] = useState("");
   const [searchType, setSearchType] = useState("movie");
+  const [lastSearch, setLastSearch] = useState("");
   const [searchList, setSearchList] = useState<CardData[]>([]);
   const [loading, setLoading] = useState(false);
 
-  function getList() {
+  function getList(query: string) {
+    if (input) {
+      setLastSearch(input);
+    }
     setInput("");
     setLoading(true);
 
-    if (input.length == 0) {
+    if (input || lastSearch) {
+      fetch(
+        `https://api.themoviedb.org/3/search/${searchType}?query=${query}&include_adult=false&language=en-US&page=1`,
+        options
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setSearchList(response.results as CardData[]);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+          throw new Error("error fetching data");
+        });
+    } else {
       return;
     }
-    fetch(
-      `https://api.themoviedb.org/3/search/${searchType}?query=${input}&include_adult=false&language=en-US&page=1`,
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        setSearchList(response.results as CardData[]);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        throw new Error("error fetching data");
-      });
   }
-
+  useEffect(() => {
+    if (input || lastSearch) {
+      getList(lastSearch);
+    }
+  }, [searchType]);
   return (
     <>
       <Modal
@@ -62,35 +71,45 @@ export default function SearchModal(props: SearchModalProps) {
           bg={searchType !== "movie" ? "#BE123C" : "#171717"}
           transition={"background 0.5s ease-in"}
         >
-          <Flex p={"6"} w={"100%"}>
-            <Text
-              fontWeight={"900"}
-              color={searchType == "movie" ? "#BE123C" : "whiteAlpha.500"}
-              mr={"4"}
-              onClick={() => {
-                setSearchType("movie");
-              }}
-              cursor={"pointer"}
-            >
-              movies
-            </Text>
-            <Text
-              fontWeight={"900"}
-              onClick={() => {
-                setSearchType("tv");
-              }}
-              color={searchType == "tv" ? "#171717" : "whiteAlpha.500"}
-              cursor={"pointer"}
-            >
-              tv
-            </Text>
+          <Flex p={"6"} w={"100%"} align={"center"} justify={"space-between"}>
+            <Flex>
+              <Text
+                fontWeight={"900"}
+                color={searchType == "movie" ? "#BE123C" : "whiteAlpha.500"}
+                mr={"4"}
+                onClick={() => {
+                  setSearchType("movie");
+                }}
+                cursor={"pointer"}
+              >
+                movies
+              </Text>
+              <Text
+                fontWeight={"900"}
+                onClick={() => {
+                  setSearchType("tv");
+                }}
+                color={searchType == "tv" ? "#171717" : "whiteAlpha.500"}
+                cursor={"pointer"}
+              >
+                tv
+              </Text>
+            </Flex>
+            <Flex>
+              <Text fontWeight={"900"} color={"whiteAlpha.600"}>
+                {" "}
+                {lastSearch}
+              </Text>
+            </Flex>
           </Flex>
           <ModalBody color={"#f2f2f2"} overflowY={"scroll"} maxH={"60vh"}>
             <Search
               input={input}
               setInput={setInput}
               searchType={searchType}
-              getList={getList}
+              getList={() => {
+                getList(input);
+              }}
               loading={loading}
             />
             <Flex w={"100%"} flexDir={"column"}>
@@ -132,7 +151,7 @@ function Search(props: {
         borderColor={props.searchType == "movie" ? "#BE123C" : "#171717"}
         borderRadius={"full"}
       >
-        <Flex align={"center"}>
+        <Flex align={"center"} w={"100%"}>
           <SearchIcon
             color={props.searchType == "movie" ? "#BE123C" : "#171717"}
           />
@@ -147,20 +166,28 @@ function Search(props: {
             border={"none"}
             mx={"2"}
             _placeholder={{
-              color: "#fafafa",
+              color: "#909090",
+              fontSize: "xs",
+              fontWeight: 900,
             }}
             value={props.input}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               props.setInput(e.target.value);
             }}
           />
-          {props.loading ? (
-            <Spinner size={"sm"} />
-          ) : (
-            <Box fontWeight={"900"} cursor={"pointer"} onClick={props.getList}>
-              search
-            </Box>
-          )}
+          <Button
+            variant={"unstyled"}
+            fontWeight={"900"}
+            cursor={"pointer"}
+            onClick={props.getList}
+            size={"sm"}
+            isLoading={props.loading}
+            isDisabled={props.input.length < 3}
+            minW={"-moz-fit-content"}
+            px={"2"}
+          >
+            search
+          </Button>
         </Flex>
       </Flex>
     </>
