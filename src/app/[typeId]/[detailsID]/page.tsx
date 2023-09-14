@@ -7,10 +7,11 @@ import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { options } from "@/components/API/apiEndpoint";
+import { EmptyCard } from "@/components/UI/card/EmptyCard";
 
 export default function MovieDetail() {
   const [movie, setMovieList] = useState<CardData>();
-  const [recommendation, setRecommendations] = useState<CardData[]>();
+  const [recommendation, setRecommendations] = useState<CardData[]>([]);
   const [loading, setLoading] = useState("movie-details");
   const { typeId, detailsID } = useParams();
 
@@ -97,6 +98,7 @@ export default function MovieDetail() {
           </SimpleGrid>
         </>
       )}
+      {loading === "done" && recommendation?.length < 1 && <EmptyCard />}
     </main>
   );
 }

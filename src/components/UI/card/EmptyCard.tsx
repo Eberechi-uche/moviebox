@@ -3,8 +3,8 @@ import { Flex, Text } from "@chakra-ui/react";
 export function EmptyCard() {
   return (
     <>
-      <Flex>
-        <Text>No movies or Tv for that</Text>
+      <Flex w={"100%"} py={"9"} px={"4"} fontWeight={"900"} color={"#fff"}>
+        <Text>we've got nothing</Text>
       </Flex>
     </>
   );

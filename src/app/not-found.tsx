@@ -40,7 +40,7 @@ export default function NotFound() {
   return (
     <>
       <Flex
-        transition={"all 2s ease-in-out"}
+        transition={"all 1s ease-in-out"}
         w={"100%"}
         h={"70vh"}
         bg={"#000"}
