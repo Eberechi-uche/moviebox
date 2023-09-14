@@ -48,6 +48,8 @@ export default function MovieHero(props: {
           }}
           boxShadow={"lg"}
           mr={"12"}
+          fallbackSrc="/images/placeholder.jpeg"
+          alt={props.title}
         />
         <Flex>
           <Flex color={"#fff"} flexDir={"column"}>

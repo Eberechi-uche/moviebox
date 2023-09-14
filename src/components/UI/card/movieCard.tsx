@@ -76,7 +76,7 @@ export function MovieCard(props: MovieCardProps) {
         overflow={"hidden"}
       >
         <Image
-          alt="movie-name"
+          alt={props.title}
           src={`https://www.themoviedb.org/t/p/original/${props.poster}`}
           w={"100%"}
           h={"100%"}
