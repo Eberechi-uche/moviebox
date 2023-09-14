@@ -8,38 +8,6 @@ import { CardData } from "../card/movieCard";
 export default function HomeHero(props: { movies: CardData[] }) {
   const [currentView, setCurrentView] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
-  const movieArray = [
-    {
-      img: "/vanNED66ty4Kc45IMcGI7edQBwH.jpg",
-      imgMini: "/fcXdJlbSdUEeMSJFsXKsznGwwok.jpg",
-      overview:
-        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
-    },
-    {
-      img: "/aRKQdF6AGbhnF9IAyJbte5epH5R.jpg",
-      imgMini: "/rVX05xRKS5JhEYQFObCi4lAnZT4.jpg",
-      overview:
-        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
-    },
-    {
-      img: "/2ii07lSwHarg0gWnJoCYL3Gyd1j.jpg",
-      imgMini: "/n1hqbSCtyBAxaXEl1Dj3ipXJAJG.jpg",
-      overview:
-        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
-    },
-    {
-      img: "/9m161GawbY3cWxe6txd1NOHTjd0.jpg",
-      imgMini: "/Af4bXE63pVsb2FtbW8uYIyPBadD.jpg",
-      overview:
-        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
-    },
-    {
-      img: "/qy5Hokv4eOQgSOVZLL9eAVDmRA2.jpg",
-      imgMini: "/kGENInUWI9tRVg4ae8XAVgAWpEi.jpg",
-      overview:
-        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
-    },
-  ];
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentView < 4) {
