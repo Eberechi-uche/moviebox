@@ -1,5 +1,7 @@
 import { Flex, Icon } from "@chakra-ui/react";
 import { useState } from "react";
+import { useToast } from "@chakra-ui/react";
+import { MovieCardMini, MovieCardMiniProps } from "../card/movieCard";
 
 export function SearchIcon(props: any) {
   return (
@@ -61,20 +63,30 @@ export function PlayIcon(props: any) {
     </Icon>
   );
 }
-export function HeartIcon(props: any) {
+export function HeartIcon(props: MovieCardMiniProps) {
   const [liked, setLiked] = useState(false);
+  const toast = useToast();
+  const toastValue = liked
+    ? "Removed from  your favourites"
+    : "Added to your favouties";
   return (
     <Flex
       bg={"whiteAlpha.700"}
+      color={"#fff"}
       p={"1"}
       borderRadius={"full"}
       onClick={(e: React.MouseEvent) => {
         e.stopPropagation();
         setLiked(!liked);
+        toast({
+          render: () => <MovieCardMini {...props} overview={toastValue} />,
+          duration: 2000,
+          position: "top",
+        });
       }}
     >
       {!liked ? (
-        <Icon {...props}>
+        <Icon>
           <svg
             // width="24"
             // height="24"
@@ -92,7 +104,7 @@ export function HeartIcon(props: any) {
           </svg>
         </Icon>
       ) : (
-        <Icon {...props}>
+        <Icon>
           <svg
             // width="30"
             // height="30"
@@ -101,8 +113,8 @@ export function HeartIcon(props: any) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M3.17169 5.17157C4.73379 3.60948 7.26645 3.60948 8.82854 5.17157L10.0001 6.34315L11.1717 5.17157C12.7338 3.60948 15.2664 3.60948 16.8285 5.17157C18.3906 6.73367 18.3906 9.26633 16.8285 10.8284L10.0001 17.6569L3.17169 10.8284C1.6096 9.26633 1.6096 6.73367 3.17169 5.17157Z"
               fill="#BE123C"
             />

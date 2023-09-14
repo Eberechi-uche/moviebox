@@ -19,13 +19,16 @@ export type CardData = {
   backdrop_path: string;
   runtime: string;
 };
-export function MovieCard(props: {
+
+interface MovieCardProps {
   title: string;
   media: string;
   poster: string;
   id: number;
   release: string;
-}) {
+}
+
+export function MovieCard(props: MovieCardProps) {
   const route = useRouter();
   return (
     <Flex
@@ -62,7 +65,7 @@ export function MovieCard(props: {
           {props.media}
         </Text>
 
-        <HeartIcon />
+        <HeartIcon {...props} overview="" />
       </Flex>
 
       <Flex
@@ -106,14 +109,12 @@ export function MovieCard(props: {
     </Flex>
   );
 }
-export function MovieCardMini(props: {
-  image: string;
-  name: string;
-  id: number;
-  media: string;
-  pubyear: string;
+
+export interface MovieCardMiniProps extends MovieCardProps {
   overview: string;
-}) {
+  action?: string;
+}
+export function MovieCardMini(props: MovieCardMiniProps) {
   const route = useRouter();
   return (
     <Flex
@@ -123,11 +124,13 @@ export function MovieCardMini(props: {
       onClick={() => {
         route.push(`/${props.media}/${props.id}`);
       }}
+      boxShadow={"2xl"}
+      cursor={"pointer"}
     >
       <Flex align={"center"} w={"100%"}>
         <Image
-          alt={props.name}
-          src={`https://www.themoviedb.org/t/p/original/${props.image}`}
+          alt={props.title}
+          src={`https://www.themoviedb.org/t/p/original/${props.poster}`}
           fallbackSrc="/images/placeholder.jpeg"
           minH={"60px"}
           maxH={"120px"}
@@ -136,14 +139,14 @@ export function MovieCardMini(props: {
           objectFit={"cover"}
         />
         <Flex pl={"2"} pr={"6"} flexDir={"column"}>
-          <Text fontWeight={"900"} fontSize={"sm"}>
-            {props.name}
+          <Text fontWeight={"900"} fontSize={"sm"} color={"#fff"}>
+            {props.title}
           </Text>
           <Text fontSize={"xx-small"} color={"#8A8A8A"} noOfLines={2}>
             {props.overview}
           </Text>
           <Text fontWeight={"400"} fontSize={"xx-small"} color={"#8A8A8A"}>
-            {props.pubyear}
+            {props.release}
           </Text>
         </Flex>
       </Flex>

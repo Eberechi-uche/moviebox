@@ -98,12 +98,12 @@ export default function SearchModal(props: SearchModalProps) {
                 searchList.length > 0 &&
                 searchList.map((item) => (
                   <MovieCardMini
-                    image={item.poster_path}
-                    name={item.name || item.title}
+                    poster={item.poster_path}
+                    title={item.name || item.title}
                     key={item.id}
                     id={item.id}
                     media={searchType}
-                    pubyear={item.first_air_date || item.release_date}
+                    release={item.first_air_date || item.release_date}
                     overview={item.overview}
                   />
                 ))}

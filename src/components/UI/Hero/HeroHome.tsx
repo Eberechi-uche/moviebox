@@ -85,6 +85,7 @@ export default function HomeHero(props: { movies: CardData[] }) {
           color={"#fff"}
           justify={"space-between"}
           pr={"4"}
+          h={"100%"}
           align={"center"}
         >
           <Flex
