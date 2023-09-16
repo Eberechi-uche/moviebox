@@ -67,7 +67,7 @@ export default function MovieHero(props: {
               {props.title}
             </Text>
             <Flex textTransform={"capitalize"} my={6}>
-              <Text fontSize={"xs"} data-testid="release-date">
+              <Text fontSize={"xs"} data-testid="movie-release-date">
                 {props.release}
               </Text>
               <Text mx={"4"} fontSize={"xs"} data-testid="movie-runtime">

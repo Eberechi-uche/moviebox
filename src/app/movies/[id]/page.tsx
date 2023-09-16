@@ -22,7 +22,6 @@ export default function MovieDetail() {
       .then((response) => {
         const { release_date } = response;
         const [year, month, day] = release_date.split("-");
-        console.log(year, month, day);
         date = new Date(Date.UTC(year, month, day));
 
         setMovieList({
