@@ -45,8 +45,9 @@ export function MovieCard(props: MovieCardProps) {
       pos={"relative"}
       key={props.id}
       onClick={() => {
-        route.push(`/${props.media}/${props.id}`);
+        route.push(`/movies/${props.id}`);
       }}
+      cursor={"pointer"}
     >
       <Flex
         position={"absolute"}

@@ -13,7 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState("black");
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
       options
     )
       .then((response) => {
@@ -41,11 +41,11 @@ export default function Home() {
 
           <SimpleGrid columns={[2, 3, 5]} w={"100%"} placeItems={"center"}>
             {movieList.length > 1 &&
-              movieList.map((item) => (
+              movieList.slice(0, 9).map((item) => (
                 <Flex key={item.id}>
                   <MovieCard
                     title={item.title || item.name}
-                    media={item.media_type}
+                    media={item.media_type || "movie"}
                     id={item.id}
                     poster={item.poster_path}
                     release={item.release_date || item.first_air_date}
